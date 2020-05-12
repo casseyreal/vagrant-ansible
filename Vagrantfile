@@ -12,5 +12,6 @@ Vagrant.configure("2") do |config|
     sudo sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config
     sudo sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config
     sudo systemctl restart sshd
+    sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
   SHELL
 end
