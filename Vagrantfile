@@ -14,6 +14,10 @@ Vagrant.configure("2") do |config|
     sudo systemctl restart sshd
     sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm 
     sudo yum install -y python36u python36u-pip python36u-devel
-    python3.6 -m pip install locustio
+    sudo yum -y groupinstall "GNOME Desktop" "Graphical Administration Tools"
+    sudo ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
   SHELL
+  config.vm.provider "virtualbox" do |v|
+    v.gui = true
+  end
 end
